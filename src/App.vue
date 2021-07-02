@@ -1,22 +1,30 @@
 <template>
   <div id="app">
-      <p>Server state : {{ status }}</p>
+      <app-header></app-header>
+      <server-status></server-status>
+      <server-details></server-details>
+      <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-
-
-export default {
-  name:'app',
-  data(){
-    return{
-      status :'bad'
+    import AppHeader from "./components/shared/Header";
+    import ServerStatus from "./components/servers/ServerStatus";
+    import ServerDetails from "./components/servers/ServerDetails";
+    import AppFooter from "./components/shared/Footer";
+    export default {
+      name:'app',
+        components:{
+            AppFooter,
+            ServerDetails,
+            ServerStatus,
+            AppHeader
+        }
     }
-  }
-}
 </script>
 
-<style>
-
+<style scoped>
+    #app{
+        text-align: center;
+    }
 </style>
