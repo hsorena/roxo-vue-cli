@@ -4,14 +4,23 @@
             <h3>کامپوننت کاربران یا User</h3>
             <p>من یک کاربر ویژه هستم</p>
             <p>نام کاربری : {{ userName }}</p>
+            <p>سن کاربر : {{ age }}</p>
             <button @click="changeUsername" >تغییر نام کاربری</button>
             <hr>
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
-                    <user-detail :username="userName" @usernameWasReset="userName = $event"></user-detail>
+                    <user-detail
+                            :username="userName"
+                            @usernameWasReset="userName = $event"
+                            :resetFn="resetname"
+                            :userAge="age"
+                    ></user-detail>
                 </div>
                 <div class="col-xs-12 col-sm-6">
-                    <user-edit></user-edit>
+                    <user-edit
+                            :userAge="age"
+                            @ageWasEdited="age = $event"
+                    ></user-edit>
                 </div>
             </div>
         </div>
@@ -24,7 +33,8 @@
     export default {
         data(){
           return{
-              userName : 'sorena'
+              userName : 'sorena',
+              age:25
           }
         },
         components:{
@@ -34,6 +44,9 @@
         methods:{
             changeUsername (){
                 this.userName = 'jafar'
+            },
+            resetname(){
+                this.userName = 'roxo'
             }
         }
     }
