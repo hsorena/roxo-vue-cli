@@ -3,11 +3,12 @@
         <div class="component">
             <h3>کامپوننت کاربران یا User</h3>
             <p>من یک کاربر ویژه هستم</p>
-            <button @click="changeUsername">تغییر نام کاربری</button>
+            <p>نام کاربری : {{ userName }}</p>
+            <button @click="changeUsername" >تغییر نام کاربری</button>
             <hr>
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
-                    <user-detail :user="userName"></user-detail>
+                    <user-detail :username="userName" @usernameWasReset="userName = $event"></user-detail>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <user-edit></user-edit>
