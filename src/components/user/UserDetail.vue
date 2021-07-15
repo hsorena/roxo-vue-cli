@@ -8,19 +8,28 @@
     <p>Q Search : {{ $route.query.q }}</p>
     <div style="height: 700px"></div>
     <p id="data">یه یه داده اینجا موجود است</p>
+    <button class="btn btn-primary" @click="changeRoute = true">تایید ترک صفحه</button>
   </div>
 </template>
 
 <script>
 export default {
-  beforeRouteEnter(to , from , next){
-    if (false){
-      next(false)
-    } else{
-      next(false)
+  data(){
+    return{
+      changeRoute:false
+    }
+  },
+  beforeRouteLeave(to,from,next){
+    if (this.changeRoute){
+      next()
+    }else{
+      if (confirm('آیا میخواهید به مسیر بعدی بروید ؟')){
+        next()
+      }else {
+        next(false)
+      }
     }
   }
-
 }
 </script>
 
