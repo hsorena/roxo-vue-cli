@@ -14,7 +14,10 @@ export const routes =[
             default: User,
             'header-bottom' : Header}  , children:[
             {path : '' , component : UserStart},
-            {path : ':id' , component : UserDetail , name:'userEdit'},
+            {path : ':id' , component : UserDetail , name:'userEdit' , beforeEnter:(to , from , next)=>{
+                console.log('inside guard')
+                    next()
+                }},
             {path : ':id/edit' , component : UserEdit}
     ]},
     {path: '/redirect-me' , redirect : {name : 'home'}},

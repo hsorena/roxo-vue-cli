@@ -13,6 +13,13 @@
 
 <script>
 export default {
+  beforeRouteEnter(to , from , next){
+    if (false){
+      next(false)
+    } else{
+      next(false)
+    }
+  }
 
 }
 </script>

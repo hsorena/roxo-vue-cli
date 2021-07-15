@@ -14,6 +14,15 @@ const router = new vueRouter({
     }
   }
 })
+
+// router.beforeEach((to, from, next)=>{
+//
+// })
+
+router.beforeEach((to , from ,next)=>{
+  console.log('global gurd')
+  next()
+})
 Vue.config.productionTip = false
 
 new Vue({
